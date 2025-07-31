@@ -53,6 +53,18 @@
     .total {
       font-weight: bold;
     }
+    .remove-btn {
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .remove-btn:hover {
+      background-color: #e04848;
+    }
     footer {
       text-align: center;
       padding: 1.5rem;
@@ -83,6 +95,7 @@
         <tr>
           <th>Item</th>
           <th>Price</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody></tbody>
@@ -90,6 +103,7 @@
         <tr>
           <td class="total">Total</td>
           <td class="total" id="total-price">$0</td>
+          <td></td>
         </tr>
       </tfoot>
     </table>
@@ -102,19 +116,37 @@
   </footer>
 
   <script>
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
     const tableBody = document.querySelector('#cart-table tbody');
     const totalPriceEl = document.getElementById('total-price');
-    let total = 0;
 
-    cart.forEach(item => {
-      const row = document.createElement('tr');
-      row.innerHTML = `<td>${item.name}</td><td>$${item.price}</td>`;
-      tableBody.appendChild(row);
-      total += item.price;
-    });
+    function renderCart() {
+      tableBody.innerHTML = '';
+      let total = 0;
 
-    totalPriceEl.textContent = `$${total}`;
+      cart.forEach((item, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>$${item.price}</td>
+          <td><button class="remove-btn" onclick="removeFromCart(${index})">Remove</button></td>
+        `;
+        tableBody.appendChild(row);
+        total += item.price;
+      });
+
+      totalPriceEl.textContent = `$${total}`;
+      return total;
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    const total = renderCart();
 
     paypal.Buttons({
       createOrder: function(data, actions) {
@@ -130,7 +162,7 @@
         return actions.order.capture().then(function(details) {
           alert('Transaction completed by ' + details.payer.name.given_name);
           localStorage.removeItem('cart');
-          location.href = 'index.html';
+          window.location.href = 'index.html';
         });
       }
     }).render('#paypal-button-container');
