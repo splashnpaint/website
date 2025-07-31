@@ -65,6 +65,7 @@
       margin-top: 0.75rem;
       border-radius: 5px;
       transition: background 0.3s;
+      cursor: pointer;
     }
     .buy-btn:hover {
       background-color: #4669a4;
@@ -88,6 +89,7 @@
     <a href="index.html">Shop</a>
     <a href="bio.html">Bio</a>
     <a href="gallery.html">Past Work</a>
+    <a href="checkout.html">Checkout</a>
   </nav>
 
   <main>
@@ -95,24 +97,33 @@
       <img src="art1.jpg" alt="Sunset Over Water">
       <h2>Sunset Over Water</h2>
       <p>$150</p>
-      <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlinkhere/150" target="_blank">Buy Now</a>
+      <button class="buy-btn" onclick="addToCart('Sunset Over Water', 150)">Add to Cart</button>
     </div>
     <div class="art-card">
       <img src="art2.jpg" alt="Forest Dreams">
       <h2>Forest Dreams</h2>
       <p>$120</p>
-      <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlinkhere/120" target="_blank">Buy Now</a>
+      <button class="buy-btn" onclick="addToCart('Forest Dreams', 120)">Add to Cart</button>
     </div>
     <div class="art-card">
       <img src="art3.jpg" alt="City Lights">
       <h2>City Lights</h2>
       <p>$180</p>
-      <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlinkhere/180" target="_blank">Buy Now</a>
+      <button class="buy-btn" onclick="addToCart('City Lights', 180)">Add to Cart</button>
     </div>
   </main>
 
   <footer>
     &copy; 2025 Splash and Paint. All rights reserved.
   </footer>
+
+  <script>
+    function addToCart(name, price) {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      cart.push({ name, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${name} added to cart.`);
+    }
+  </script>
 </body>
 </html>
