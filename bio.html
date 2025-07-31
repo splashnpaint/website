@@ -3,46 +3,174 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About the Artist - Splash and Paint</title>
+  <title>Bio - Splash and Paint</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffffff;
       margin: 0;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       color: #333;
+      min-height: 100vh;
     }
-    header, footer {
-      background: linear-gradient(135deg, #92bcea, #e0c3fc);
+    
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 3rem 2rem;
+      text-align: center;
       color: white;
-      text-align: center;
-      padding: 2rem 1rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     }
+    
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    header p {
+      font-size: 1.2rem;
+      margin: 0.5rem 0 0 0;
+      opacity: 0.9;
+    }
+    
     nav {
-      background: #f9f9f9;
-      padding: 0.75rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem;
       text-align: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
+    
     nav a {
-      margin: 0 1rem;
+      margin: 0 1.5rem;
       text-decoration: none;
       color: #444;
       font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      transition: all 0.3s ease;
     }
-    nav a:hover {
-      color: #5a82c7;
+    
+    nav a:hover, nav a.active {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
     }
+    
     main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+    
+    .bio-container {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .artist-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      float: left;
+      margin: 0 2rem 1rem 0;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    
+    .artist-photo:hover {
+      transform: scale(1.05);
+    }
+    
+    .bio-content h2 {
+      color: #667eea;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .bio-content p {
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      text-align: justify;
+    }
+    
+    .quote {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
       padding: 2rem;
-      max-width: 800px;
-      margin: auto;
+      border-radius: 15px;
+      font-style: italic;
+      font-size: 1.2rem;
+      text-align: center;
+      margin: 2rem 0;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
     }
-    h2 {
-      margin-top: 0;
-      color: #5a82c7;
+    
+    .achievements {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
-    p {
-      line-height: 1.6;
+    
+    .achievement-card {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .achievement-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .achievement-card h3 {
+      color: #667eea;
+      margin-bottom: 0.5rem;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      margin-top: 3rem;
+    }
+    
+    @media (max-width: 768px) {
+      .artist-photo {
+        float: none;
+        display: block;
+        margin: 0 auto 2rem auto;
+      }
+      
+      .bio-container {
+        padding: 2rem;
+      }
+      
+      main {
+        padding: 2rem 1rem;
+      }
+      
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      nav a {
+        margin: 0 0.5rem;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -51,22 +179,62 @@
     <h1>Splash and Paint</h1>
     <p>Meet the Artist</p>
   </header>
-
+  
   <nav>
     <a href="index.html">Shop</a>
-    <a href="bio.html">Bio</a>
-    <a href="gallery.html">Past Work</a>
+    <a href="bio.html" class="active">Bio</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
   </nav>
-
+  
   <main>
-    <h2>About [Your Mom's Name]</h2>
-    <p>[Your Mom's Name] is a passionate visual artist based in [Your City]. With over 30 years of experience, her work has ranged from large-scale public art to intimate, expressive canvas paintings.</p>
-    <p>Her favorite mediums include acrylics and watercolor, often inspired by nature, memory, and dreams. She has received multiple grants and public commissions, including work displayed in downtown [City Name].</p>
-    <p>Her mission is simple: to make the world a little more beautiful, one brushstroke at a time.</p>
+    <div class="bio-container">
+      <img src="https://images.unsplash.com/photo-1494790108755-2616c179-8d6f?w=200&h=200&fit=crop&crop=face" alt="Artist Photo" class="artist-photo">
+      
+      <div class="bio-content">
+        <h2>About [Artist Name]</h2>
+        
+        <p>Welcome to my artistic journey! I'm [Artist Name], a passionate painter who has been creating vibrant, emotional artwork for over [X] years. My love for art began in childhood, when I would spend hours sketching the world around me, captivated by the way light danced across different surfaces and how colors could evoke such powerful emotions.</p>
+        
+        <p>My artistic style has evolved through years of experimentation and exploration. I work primarily with acrylics and oils, though I also enjoy incorporating mixed media elements into my pieces. Nature has always been my greatest inspiration - from the gentle ripples of a sunset-kissed lake to the dramatic shadows cast by towering mountains. Each painting tells a story, capturing a moment in time that speaks to the soul.</p>
+        
+        <div class="quote">
+          "Art is not what you see, but what you make others see. Through my paintings, I hope to share the beauty and wonder that surrounds us every day."
+        </div>
+        
+        <p>I believe that art should be accessible to everyone. That's why I create pieces at various price points, ensuring that anyone can bring a piece of handcrafted beauty into their home. Each painting is created with love, attention to detail, and a deep respect for the craft that has been my life's passion.</p>
+        
+        <p>When I'm not painting, you can find me hiking local trails, photographing potential subjects for future artworks, or teaching art workshops in the community. I'm also an active member of the [Local Art Association] and regularly participate in regional art shows and exhibitions.</p>
+        
+        <div class="achievements">
+          <div class="achievement-card">
+            <h3>🎨 Art Education</h3>
+            <p>Bachelor of Fine Arts from [University Name], with a focus on landscape and impressionist techniques.</p>
+          </div>
+          
+          <div class="achievement-card">
+            <h3>🏆 Awards & Recognition</h3>
+            <p>Winner of [Local Art Competition], Featured Artist at [Gallery Name], and multiple Best in Show awards.</p>
+          </div>
+          
+          <div class="achievement-card">
+            <h3>🖼️ Exhibitions</h3>
+            <p>Work displayed in galleries across [Region/State], with pieces in private collections nationwide.</p>
+          </div>
+          
+          <div class="achievement-card">
+            <h3>👥 Community Involvement</h3>
+            <p>Regular workshop instructor and volunteer art teacher for local community programs.</p>
+          </div>
+        </div>
+        
+        <p style="margin-top: 2rem;">Thank you for taking the time to learn about my journey. I hope my artwork brings as much joy to your life as creating it brings to mine. If you have any questions about my work or would like to commission a custom piece, please don't hesitate to reach out!</p>
+      </div>
+    </div>
   </main>
-
+  
   <footer>
-    &copy; 2025 Splash and Paint. All rights reserved.
+    &copy; 2025 Splash and Paint. All rights reserved. | Contact: artist@splashandpaint.com
   </footer>
 </body>
 </html>
