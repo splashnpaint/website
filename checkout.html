@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Splash and Paint</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #ffffff;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #92bcea, #e0c3fc);
+      padding: 2rem;
+      text-align: center;
+      color: white;
+    }
+    nav {
+      background: #f9f9f9;
+      padding: 0.75rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #444;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #5a82c7;
+    }
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .cart-item {
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
+    }
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+    .total {
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    .pay-options {
+      margin-top: 2rem;
+    }
+    .buy-btn {
+      background-color: #5a82c7;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      display: inline-block;
+      margin: 0.5rem 0.5rem 0 0;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .buy-btn:hover {
+      background-color: #4669a4;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #f0f0f0;
+      color: #888;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Splash and Paint</h1>
+    <p>Your Cart</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Shop</a>
+    <a href="bio.html">Bio</a>
+    <a href="gallery.html">Past Work</a>
+    <a href="checkout.html">Checkout</a>
+  </nav>
+
+  <main>
+    <div id="cart"></div>
+    <div class="total" id="total"></div>
+    <div class="pay-options">
+      <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlinkhere" target="_blank">Pay with PayPal</a>
+      <a class="buy-btn" href="https://venmo.com/yourusername" target="_blank">Pay with Venmo</a>
+      <a class="buy-btn" href="mailto:youremail@example.com?subject=Zelle%20Purchase" target="_blank">Zelle Instructions</a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Splash and Paint. All rights reserved.
+  </footer>
+
+  <script>
+    const cartContainer = document.getElementById('cart');
+    const totalContainer = document.getElementById('total');
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    if (cart.length === 0) {
+      cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+    } else {
+      let total = 0;
+      cart.forEach(item => {
+        total += item.price;
+        const div = document.createElement('div');
+        div.className = 'cart-item';
+        div.textContent = `${item.name} — $${item.price.toFixed(2)}`;
+        cartContainer.appendChild(div);
+      });
+      totalContainer.textContent = `Total: $${total.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
