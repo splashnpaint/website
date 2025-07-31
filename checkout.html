@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Checkout - Splash and Paint</title>
   <style>
     body {
@@ -33,36 +33,25 @@
       color: #5a82c7;
     }
     main {
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 1rem;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
     }
-    .cart-item {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    th, td {
+      padding: 0.75rem;
       border-bottom: 1px solid #ddd;
-      padding: 1rem 0;
+      text-align: left;
     }
-    .cart-item:last-child {
-      border-bottom: none;
+    th {
+      background-color: #f2f2f2;
     }
     .total {
       font-weight: bold;
-      margin-top: 1rem;
-    }
-    .pay-options {
-      margin-top: 2rem;
-    }
-    .buy-btn {
-      background-color: #5a82c7;
-      color: white;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      display: inline-block;
-      margin: 0.5rem 0.5rem 0 0;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-    .buy-btn:hover {
-      background-color: #4669a4;
     }
     footer {
       text-align: center;
@@ -72,11 +61,12 @@
       font-size: 0.9rem;
     }
   </style>
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAXjwblLovW2HLSVvLAAZBj61NTGhh7J84PeSXi7Do0NFDE68CJcLlRNFQ1SoX-iof72JiaJIQ0DorNAk&components=buttons&enable-funding=venmo&currency=USD"></script>
 </head>
 <body>
   <header>
     <h1>Splash and Paint</h1>
-    <p>Your Cart</p>
+    <p>Checkout</p>
   </header>
 
   <nav>
@@ -87,13 +77,24 @@
   </nav>
 
   <main>
-    <div id="cart"></div>
-    <div class="total" id="total"></div>
-    <div class="pay-options">
-      <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlinkhere" target="_blank">Pay with PayPal</a>
-      <a class="buy-btn" href="https://venmo.com/yourusername" target="_blank">Pay with Venmo</a>
-      <a class="buy-btn" href="mailto:youremail@example.com?subject=Zelle%20Purchase" target="_blank">Zelle Instructions</a>
-    </div>
+    <h2>Your Cart</h2>
+    <table id="cart-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+      <tfoot>
+        <tr>
+          <td class="total">Total</td>
+          <td class="total" id="total-price">$0</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div id="paypal-button-container"></div>
   </main>
 
   <footer>
@@ -101,23 +102,38 @@
   </footer>
 
   <script>
-    const cartContainer = document.getElementById('cart');
-    const totalContainer = document.getElementById('total');
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const tableBody = document.querySelector('#cart-table tbody');
+    const totalPriceEl = document.getElementById('total-price');
+    let total = 0;
 
-    if (cart.length === 0) {
-      cartContainer.innerHTML = '<p>Your cart is empty.</p>';
-    } else {
-      let total = 0;
-      cart.forEach(item => {
-        total += item.price;
-        const div = document.createElement('div');
-        div.className = 'cart-item';
-        div.textContent = `${item.name} — $${item.price.toFixed(2)}`;
-        cartContainer.appendChild(div);
-      });
-      totalContainer.textContent = `Total: $${total.toFixed(2)}`;
-    }
+    cart.forEach(item => {
+      const row = document.createElement('tr');
+      row.innerHTML = `<td>${item.name}</td><td>$${item.price}</td>`;
+      tableBody.appendChild(row);
+      total += item.price;
+    });
+
+    totalPriceEl.textContent = `$${total}`;
+
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: total.toString()
+            }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('Transaction completed by ' + details.payer.name.given_name);
+          localStorage.removeItem('cart');
+          location.href = 'index.html';
+        });
+      }
+    }).render('#paypal-button-container');
   </script>
 </body>
 </html>
