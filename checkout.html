@@ -50,20 +50,16 @@
     th {
       background-color: #f2f2f2;
     }
-    .total {
+    .remove-btn {
+      color: #c0392b;
+      cursor: pointer;
       font-weight: bold;
     }
-    .remove-btn {
-      background-color: #ff6b6b;
-      color: white;
-      border: none;
-      padding: 0.4rem 0.8rem;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
     .remove-btn:hover {
-      background-color: #e04848;
+      text-decoration: underline;
+    }
+    .total {
+      font-weight: bold;
     }
     footer {
       text-align: center;
@@ -95,7 +91,7 @@
         <tr>
           <th>Item</th>
           <th>Price</th>
-          <th>Action</th>
+          <th>Remove</th>
         </tr>
       </thead>
       <tbody></tbody>
@@ -116,12 +112,10 @@
   </footer>
 
   <script>
-    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-
-    const tableBody = document.querySelector('#cart-table tbody');
-    const totalPriceEl = document.getElementById('total-price');
-
     function renderCart() {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const tableBody = document.querySelector('#cart-table tbody');
+      const totalPriceEl = document.getElementById('total-price');
       tableBody.innerHTML = '';
       let total = 0;
 
@@ -130,7 +124,7 @@
         row.innerHTML = `
           <td>${item.name}</td>
           <td>$${item.price}</td>
-          <td><button class="remove-btn" onclick="removeFromCart(${index})">Remove</button></td>
+          <td><span class="remove-btn" onclick="removeItem(${index})">Remove</span></td>
         `;
         tableBody.appendChild(row);
         total += item.price;
@@ -140,7 +134,8 @@
       return total;
     }
 
-    function removeFromCart(index) {
+    function removeItem(index) {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
       cart.splice(index, 1);
       localStorage.setItem('cart', JSON.stringify(cart));
       renderCart();
@@ -162,7 +157,7 @@
         return actions.order.capture().then(function(details) {
           alert('Transaction completed by ' + details.payer.name.given_name);
           localStorage.removeItem('cart');
-          window.location.href = 'index.html';
+          location.href = 'index.html';
         });
       }
     }).render('#paypal-button-container');
