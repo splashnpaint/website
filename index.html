@@ -123,14 +123,16 @@
     
     .art-card img {
       width: 100%;
-      height: 250px;
-      object-fit: cover;
+      height: auto;
+      max-height: none;
+      object-fit: contain;
       border-radius: 15px;
       transition: transform 0.3s ease;
+      background: #f8f9fa;
     }
     
     .art-card:hover img {
-      transform: scale(1.05);
+      transform: scale(1.02);
     }
     
     .art-card h2 {
