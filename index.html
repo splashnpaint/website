@@ -3,71 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Splash and Paint</title>
+  <title>About the Artist - Splash and Paint</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
       margin: 0;
-      background-color: #fefcfb;
       color: #333;
     }
-    header {
-      background-color: #f5a623;
-      padding: 1rem;
-      text-align: center;
+    header, footer {
+      background: linear-gradient(135deg, #92bcea, #e0c3fc);
       color: white;
+      text-align: center;
+      padding: 2rem 1rem;
     }
     nav {
-      background: #fce3b9;
-      padding: 0.5rem;
+      background: #f9f9f9;
+      padding: 0.75rem;
       text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
     nav a {
       margin: 0 1rem;
       text-decoration: none;
-      color: #333;
-      font-weight: bold;
+      color: #444;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #5a82c7;
     }
     main {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
       padding: 2rem;
+      max-width: 800px;
+      margin: auto;
     }
-    .art-card {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      margin: 1rem;
-      padding: 1rem;
-      max-width: 300px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    h2 {
+      margin-top: 0;
+      color: #5a82c7;
     }
-    .art-card img {
-      width: 100%;
-      border-radius: 4px;
-    }
-    .buy-btn {
-      background-color: #f5a623;
-      color: white;
-      padding: 0.5rem 1rem;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 0.5rem;
-      border-radius: 4px;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #f5a623;
-      color: white;
+    p {
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Splash and Paint</h1>
-    <p>Original art by [Your Mom's Name Here]</p>
+    <p>Meet the Artist</p>
   </header>
 
   <nav>
@@ -77,24 +59,10 @@
   </nav>
 
   <main>
-    <div class="art-card">
-      <img src="art1.jpg" alt="Sunset Over Water">
-      <h2>Sunset Over Water</h2>
-      <p>$150</p>
-      <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlinkhere/150" target="_blank">Buy Now</a>
-    </div>
-    <div class="art-card">
-      <img src="art2.jpg" alt="Forest Dreams">
-      <h2>Forest Dreams</h2>
-      <p>$120</p>
-      <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlinkhere/120" target="_blank">Buy Now</a>
-    </div>
-    <div class="art-card">
-      <img src="art3.jpg" alt="City Lights">
-      <h2>City Lights</h2>
-      <p>$180</p>
-      <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlinkhere/180" target="_blank">Buy Now</a>
-    </div>
+    <h2>About [Your Mom's Name]</h2>
+    <p>[Your Mom's Name] is a passionate visual artist based in [Your City]. With over 30 years of experience, her work has ranged from large-scale public art to intimate, expressive canvas paintings.</p>
+    <p>Her favorite mediums include acrylics and watercolor, often inspired by nature, memory, and dreams. She has received multiple grants and public commissions, including work displayed in downtown [City Name].</p>
+    <p>Her mission is simple: to make the world a little more beautiful, one brushstroke at a time.</p>
   </main>
 
   <footer>
