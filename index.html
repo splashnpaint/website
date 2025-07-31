@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About the Artist - Splash and Paint</title>
+  <title>Splash and Paint</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffffff;
       margin: 0;
+      background-color: #ffffff;
       color: #333;
     }
-    header, footer {
+    header {
       background: linear-gradient(135deg, #92bcea, #e0c3fc);
-      color: white;
+      padding: 2rem;
       text-align: center;
-      padding: 2rem 1rem;
+      color: white;
     }
     nav {
       background: #f9f9f9;
@@ -33,23 +33,55 @@
       color: #5a82c7;
     }
     main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       padding: 2rem;
-      max-width: 800px;
-      margin: auto;
+      gap: 2rem;
     }
-    h2 {
-      margin-top: 0;
-      color: #5a82c7;
+    .art-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 1rem;
+      max-width: 300px;
+      transition: transform 0.2s;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
-    p {
-      line-height: 1.6;
+    .art-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+    .art-card img {
+      width: 100%;
+      border-radius: 6px;
+    }
+    .buy-btn {
+      background-color: #5a82c7;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0.75rem;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .buy-btn:hover {
+      background-color: #4669a4;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #f0f0f0;
+      color: #888;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Splash and Paint</h1>
-    <p>Meet the Artist</p>
+    <p>Original art by [Your Mom's Name Here]</p>
   </header>
 
   <nav>
@@ -59,10 +91,24 @@
   </nav>
 
   <main>
-    <h2>About [Your Mom's Name]</h2>
-    <p>[Your Mom's Name] is a passionate visual artist based in [Your City]. With over 30 years of experience, her work has ranged from large-scale public art to intimate, expressive canvas paintings.</p>
-    <p>Her favorite mediums include acrylics and watercolor, often inspired by nature, memory, and dreams. She has received multiple grants and public commissions, including work displayed in downtown [City Name].</p>
-    <p>Her mission is simple: to make the world a little more beautiful, one brushstroke at a time.</p>
+    <div class="art-card">
+      <img src="art1.jpg" alt="Sunset Over Water">
+      <h2>Sunset Over Water</h2>
+      <p>$150</p>
+      <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlinkhere/150" target="_blank">Buy Now</a>
+    </div>
+    <div class="art-card">
+      <img src="art2.jpg" alt="Forest Dreams">
+      <h2>Forest Dreams</h2>
+      <p>$120</p>
+      <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlinkhere/120" target="_blank">Buy Now</a>
+    </div>
+    <div class="art-card">
+      <img src="art3.jpg" alt="City Lights">
+      <h2>City Lights</h2>
+      <p>$180</p>
+      <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlinkhere/180" target="_blank">Buy Now</a>
+    </div>
   </main>
 
   <footer>
