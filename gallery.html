@@ -3,52 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery - Splash and Paint</title>
+  <title>Splash and Paint</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #fefcfb;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
+      background-color: #ffffff;
       color: #333;
     }
-    header, footer {
-      background-color: #f5a623;
-      color: white;
+    header {
+      background: linear-gradient(135deg, #92bcea, #e0c3fc);
+      padding: 2rem;
       text-align: center;
-      padding: 1rem;
+      color: white;
     }
     nav {
-      background: #fce3b9;
-      padding: 0.5rem;
+      background: #f9f9f9;
+      padding: 0.75rem;
       text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
     nav a {
       margin: 0 1rem;
       text-decoration: none;
-      color: #333;
-      font-weight: bold;
+      color: #444;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #5a82c7;
     }
     main {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       padding: 2rem;
+      gap: 2rem;
     }
-    .thumb {
-      margin: 1rem;
+    .art-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 1rem;
       max-width: 300px;
+      transition: transform 0.2s;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
-    .thumb img {
+    .art-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    }
+    .art-card img {
       width: 100%;
-      border-radius: 4px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 6px;
+    }
+    .buy-btn {
+      background-color: #5a82c7;
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0.75rem;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .buy-btn:hover {
+      background-color: #4669a4;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #f0f0f0;
+      color: #888;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Splash and Paint</h1>
-    <p>Gallery of Past Works</p>
+    <p>Original art by [Your Mom's Name Here]</p>
   </header>
 
   <nav>
@@ -58,16 +91,24 @@
   </nav>
 
   <main>
-    <div class="thumb">
-      <img src="gallery1.jpg" alt="Past Work 1">
+    <div class="art-card">
+      <img src="art1.jpg" alt="Sunset Over Water">
+      <h2>Sunset Over Water</h2>
+      <p>$150</p>
+      <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlinkhere/150" target="_blank">Buy Now</a>
     </div>
-    <div class="thumb">
-      <img src="gallery2.jpg" alt="Past Work 2">
+    <div class="art-card">
+      <img src="art2.jpg" alt="Forest Dreams">
+      <h2>Forest Dreams</h2>
+      <p>$120</p>
+      <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlinkhere/120" target="_blank">Buy Now</a>
     </div>
-    <div class="thumb">
-      <img src="gallery3.jpg" alt="Past Work 3">
+    <div class="art-card">
+      <img src="art3.jpg" alt="City Lights">
+      <h2>City Lights</h2>
+      <p>$180</p>
+      <a class="buy-btn" href="https://www.paypal.com/paypalme/yourlinkhere/180" target="_blank">Buy Now</a>
     </div>
-    <!-- Add more images as needed -->
   </main>
 
   <footer>
