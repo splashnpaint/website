@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery - Splash and Paint</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fefcfb;
+      margin: 0;
+      color: #333;
+    }
+    header, footer {
+      background-color: #f5a623;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    nav {
+      background: #fce3b9;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .thumb {
+      margin: 1rem;
+      max-width: 300px;
+    }
+    .thumb img {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Splash and Paint</h1>
+    <p>Gallery of Past Works</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Shop</a>
+    <a href="bio.html">Bio</a>
+    <a href="gallery.html">Past Work</a>
+  </nav>
+
+  <main>
+    <div class="thumb">
+      <img src="gallery1.jpg" alt="Past Work 1">
+    </div>
+    <div class="thumb">
+      <img src="gallery2.jpg" alt="Past Work 2">
+    </div>
+    <div class="thumb">
+      <img src="gallery3.jpg" alt="Past Work 3">
+    </div>
+    <!-- Add more images as needed -->
+  </main>
+
+  <footer>
+    &copy; 2025 Splash and Paint. All rights reserved.
+  </footer>
+</body>
+</html>
