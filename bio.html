@@ -14,11 +14,16 @@
     }
     
     header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      padding: 3rem 2rem;
+      background: url('https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1200&h=400&fit=crop') center/cover no-repeat;
+      padding: 4rem 2rem;
       text-align: center;
       color: white;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     
     header h1 {
@@ -74,6 +79,18 @@
       padding: 3rem;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+    }
+    
+    .bio-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 20px 20px 0 0;
     }
     
     .artist-photo {
@@ -85,6 +102,7 @@
       margin: 0 2rem 1rem 0;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease;
+      background: linear-gradient(135deg, #667eea, #764ba2);
     }
     
     .artist-photo:hover {
@@ -129,6 +147,18 @@
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .achievement-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
     }
     
     .achievement-card:hover {
@@ -189,14 +219,14 @@
   
   <main>
     <div class="bio-container">
-      <img src="profile.jpg" alt="Artist Photo" class="artist-photo">
+      <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=200&h=200&fit=crop" alt="Artist Photo" class="artist-photo">
       
       <div class="bio-content">
         <h2>About Yuliya Helgesen-Thompson</h2>
         
         <p>Welcome to my world of vibrant expression! I'm Yuliya Helgesen-Thompson, an Alaskan-born artist now based in the beautiful Pacific Northwest. My passion for painting began at a young age and has grown into a lifelong journey of creativity and connection through art.</p>
         
-        <p>I founded Shadow Lake Studio in Renton, Washington, as a space to create and share meaningful art inspired by nature, people, and everyday life. My work spans acrylic, mixed media, and other techniques that allow emotion and texture to shine through. I believe art should speak to the heart—whether it’s a quiet landscape or a bold, energetic abstraction.</p>
+        <p>I founded Shadow Lake Studio in Renton, Washington, as a space to create and share meaningful art inspired by nature, people, and everyday life. My work spans acrylic, mixed media, and other techniques that allow emotion and texture to shine through. I believe art should speak to the heart—whether it's a quiet landscape or a bold, energetic abstraction.</p>
         
         <div class="quote">
           "Art is a way of slowing down time—of holding onto a feeling, a moment, or a place, and sharing it with others in a lasting way."
@@ -204,7 +234,7 @@
         
         <p>My art has been featured in community exhibitions including the Lawrence Khan Law Firm and BrewHub in Renton. I am deeply involved in making art accessible and enjoyable to the local community, and love working on public projects and interactive workshops that invite others to find joy in creating.</p>
         
-        <p>Whether I’m painting a fire hydrant in downtown Renton or preparing for a gallery show, each piece I create is rooted in love, exploration, and a desire to bring beauty into everyday spaces.</p>
+        <p>Whether I'm painting a fire hydrant in downtown Renton or preparing for a gallery show, each piece I create is rooted in love, exploration, and a desire to bring beauty into everyday spaces.</p>
         
         <div class="achievements">
           <div class="achievement-card">
@@ -228,13 +258,13 @@
           </div>
         </div>
         
-        <p style="margin-top: 2rem;">Thank you for visiting and supporting independent art. If you'd like to learn more, purchase a piece, or commission custom work, don’t hesitate to get in touch. I’d love to connect with you!</p>
+        <p style="margin-top: 2rem;">Thank you for visiting and supporting independent art. If you'd like to learn more, purchase a piece, or commission custom work, don't hesitate to get in touch. I'd love to connect with you!</p>
       </div>
     </div>
   </main>
   
   <footer>
-    &copy; 2025 Splash and Paint. All rights reserved. | Contact: artist@splashandpaint.com
+    &copy; 2025 Splash and Paint. All rights reserved. | Contact: yuliyaht@gmail.com
   </footer>
 </body>
 </html>
