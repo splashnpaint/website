@@ -14,11 +14,16 @@
     }
     
     header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      padding: 3rem 2rem;
+      background: url('https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1200&h=400&fit=crop') center/cover no-repeat;
+      padding: 4rem 2rem;
       text-align: center;
       color: white;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     
     header h1 {
@@ -31,6 +36,7 @@
       font-size: 1.2rem;
       margin: 0.5rem 0 0 0;
       opacity: 0.9;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
     
     nav {
@@ -75,6 +81,19 @@
       padding: 2rem;
       border-radius: 20px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+    }
+    
+    .gallery-intro::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 20px 20px 0 0;
     }
     
     .gallery-intro h2 {
@@ -98,6 +117,18 @@
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       transition: all 0.4s ease;
       cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+    }
+    
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
     }
     
     .gallery-item:hover {
@@ -367,7 +398,7 @@
   </div>
   
   <footer>
-    &copy; 2025 Splash and Paint. All rights reserved. | Contact: artist@splashandpaint.com
+    &copy; 2025 Splash and Paint. All rights reserved. | Contact: yuliyaht@gmail.com
   </footer>
   
   <script>
