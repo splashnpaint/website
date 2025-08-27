@@ -14,7 +14,7 @@
     }
     
     header {
-      background: url('Steel-and-Petals.jpg') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1200&h=400&fit=crop') center/cover no-repeat;
       padding: 4rem 2rem;
       text-align: center;
       color: white;
@@ -125,6 +125,7 @@
       border: 2px solid #e0e0e0;
       border-radius: 10px;
       font-size: 1rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       transition: border-color 0.3s ease;
       box-sizing: border-box;
     }
@@ -282,6 +283,7 @@
       border-radius: 10px;
       margin-bottom: 1rem;
       display: none;
+      text-align: center;
     }
     
     @media (max-width: 768px) {
@@ -311,3 +313,177 @@
         font-size: 0.9rem;
       }
     }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Splash and Paint</h1>
+    <p>Get in Touch</p>
+  </header>
+  
+  <nav>
+    <a href="index.html">Shop</a>
+    <a href="bio.html">Bio</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+  
+  <main>
+    <div class="contact-container">
+      <div class="contact-form">
+        <h2>Send a Message</h2>
+        <div class="success-message" id="successMessage">
+          Thank you for your message! I'll get back to you within 24-48 hours.
+        </div>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="Tell me about your interest in my artwork, commission ideas, or any questions you have..." required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+      
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div class="contact-details">
+            <h3>Email</h3>
+            <p><a href="mailto:yuliyaht@gmail.com">yuliyaht@gmail.com</a></p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div class="contact-details">
+            <h3>Phone</h3>
+            <p><a href="tel:+19074418644">(907) 441-8644</a></p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-details">
+            <h3>Location</h3>
+            <p>Renton, Washington<br>Pacific Northwest</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">🎨</div>
+          <div class="contact-details">
+            <h3>Studio Visits</h3>
+            <p>By appointment only<br>Please contact to schedule</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">⏰</div>
+          <div class="contact-details">
+            <h3>Response Time</h3>
+            <p>24-48 hours<br>Monday - Friday</p>
+          </div>
+        </div>
+        
+        <div class="contact-item">
+          <div class="contact-icon">📷</div>
+          <div class="contact-details">
+            <h3>Social Media</h3>
+            <p><a href="https://www.instagram.com/fusedpalette/" target="_blank">@fusedpalette</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="commission-info">
+      <h2>Custom Commission Pricing</h2>
+      <p>I'd love to create a custom piece just for you! Here are my standard commission rates. Final pricing may vary based on complexity, materials, and timeline requirements.</p>
+      
+      <div class="commission-grid">
+        <div class="commission-card">
+          <h3>Small</h3>
+          <div class="price">$200 - $350</div>
+          <div class="size">8" x 10" to 11" x 14"</div>
+        </div>
+        
+        <div class="commission-card">
+          <h3>Medium</h3>
+          <div class="price">$400 - $650</div>
+          <div class="size">16" x 20" to 18" x 24"</div>
+        </div>
+        
+        <div class="commission-card">
+          <h3>Large</h3>
+          <div class="price">$700 - $1200</div>
+          <div class="size">24" x 30" to 30" x 40"</div>
+        </div>
+        
+        <div class="commission-card">
+          <h3>Extra Large</h3>
+          <div class="price">$1300+</div>
+          <div class="size">36" x 48" and larger</div>
+        </div>
+      </div>
+      
+      <p style="margin-top: 2rem; text-align: center; color: #666;">
+        <strong>Commission Process:</strong> 50% deposit required to begin • 4-8 week completion time • Progress photos provided • 100% satisfaction guaranteed
+      </p>
+    </div>
+  </main>
+  
+  <footer>
+    &copy; 2025 Splash and Paint. All rights reserved. | Contact: yuliyaht@gmail.com 
+  </footer>
+  
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      
+      const successMessage = document.getElementById('successMessage');
+      const form = document.getElementById('contactForm');
+      
+      // Show success message
+      successMessage.style.display = 'block';
+      
+      // Scroll to success message
+      successMessage.scrollIntoView({ behavior: 'smooth' });
+      
+      // Reset form after a short delay
+      setTimeout(() => {
+        form.reset();
+      }, 500);
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        successMessage.style.display = 'none';
+      }, 5000);
+      
+      // Note: In a real implementation, you would send the form data to a server
+      // using fetch() or XMLHttpRequest to actually email the message
+    }
+  </script>
+</body>
+</html>
